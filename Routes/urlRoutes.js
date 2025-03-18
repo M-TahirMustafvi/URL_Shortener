@@ -15,5 +15,8 @@ router.put('/:shortCode', urlController.updateLongUrl);
 //Deletes URL Obj
 router.delete('/:shortCode', urlController.deleteUrl);
 
+//Gets url with stats
+router.get('/stats/:shortCode', urlController.getUrlStats);
+
 
 module.exports = router;

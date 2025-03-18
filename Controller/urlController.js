@@ -88,3 +88,19 @@ exports.deleteUrl = async (req, res) => {
         res.status(500).json({error: 'Server error', details: error.message});
     }
 };
+
+//Retrievs URL obj with its stats
+exports.getUrlStats = async (req, res) => {
+    try {
+        const {shortCode} = req.params;
+        const URL = await URLs.findOne({ where: {shortCode}});
+
+        if(!URL) return res.status(404).json({error: 'No such URL'});
+
+        res.status(200).json(URL);
+    }
+    catch(error) {
+        console.error("Error while updating URL", error);
+        res.status(500).json({error: 'Server error', details: error.message});
+    }
+}
