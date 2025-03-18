@@ -58,7 +58,8 @@ node index.js
 {
     "id": 1,
     "shortCode": "abc123",
-    "url": "https://example.com"
+    "url": "https://example.com",
+    "createdAt": "2025-03-17T12:00:00Z"
 }
 ```
 
@@ -69,7 +70,8 @@ node index.js
 {
     "id": 1,
     "shortCode": "abc123",
-    "url": "https://example.com"
+    "url": "https://example.com",
+    "createdAt": "2025-03-17T12:00:00Z"
 }
 ```
 
@@ -86,7 +88,8 @@ node index.js
 {
     "id": 1,
     "shortCode": "abc123",
-    "url": "https://new-example.com"
+    "url": "https://new-example.com",
+    "updatedAt": "2025-03-17T12:30:00Z"
 }
 ```
 
@@ -95,7 +98,8 @@ node index.js
 #### Response:
 ```json
 {
-    "message": "URL deleted successfully"
+    "message": "URL deleted successfully",
+    "deletedAt": "2025-03-17T12:45:00Z"
 }
 ```
 
@@ -107,7 +111,9 @@ node index.js
     "id": 1,
     "shortCode": "abc123",
     "url": "https://example.com",
-    "accessCount": 5
+    "accessCount": 5,
+    "createdAt": "2025-03-17T12:00:00Z",
+    "lastAccessedAt": "2025-03-17T12:50:00Z"
 }
 ```
 
