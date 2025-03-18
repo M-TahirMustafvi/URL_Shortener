@@ -75,12 +75,12 @@ node index.js
 }
 ```
 
-### 3. Update Short URL
+### 3. Update Long URL
 **PUT** `/shorten/:shortCode`
 #### Request Body:
 ```json
 {
-    "url": "https://new-example.com"
+    "url": "abc123"
 }
 ```
 #### Response:
@@ -96,12 +96,7 @@ node index.js
 ### 4. Delete Short URL
 **DELETE** `/shorten/:shortCode`
 #### Response:
-```json
-{
-    "message": "URL deleted successfully",
-    "deletedAt": "2025-03-17T12:45:00Z"
-}
-```
+```Status Code:204```
 
 ### 5. Get URL Statistics
 **GET** `/shorten/stats/:shortCode`
@@ -113,7 +108,7 @@ node index.js
     "url": "https://example.com",
     "accessCount": 5,
     "createdAt": "2025-03-17T12:00:00Z",
-    "lastAccessedAt": "2025-03-17T12:50:00Z"
+    "updatedAt": "2025-03-17T12:50:00Z"
 }
 ```
 
