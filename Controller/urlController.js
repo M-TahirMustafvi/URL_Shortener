@@ -72,3 +72,19 @@ exports.updateLongUrl = async (req, res) => {
         res.status(500).json({ error: 'Server error', details: error.message });
     }
 };
+
+// Deletes URL obj based on short URL in req params
+exports.deleteUrl = async (req, res) => {
+    try {
+        const {shortCode} = req.params;
+
+        const deleted = await URLs.destroy({ where: {shortCode}});
+        if(!deleted) return res.status(201).json( { error: 'No Such URL' });
+
+        res.status(204).send();
+    }
+    catch(error) {
+        console.error("Error while updating URL", error);
+        res.status(500).json({error: 'Server error', details: error.message});
+    }
+};

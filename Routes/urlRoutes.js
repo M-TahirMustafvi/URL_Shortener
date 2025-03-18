@@ -12,4 +12,8 @@ router.get('/:shortCode', urlController.getLongUrl);
 //Updates Long URL
 router.put('/:shortCode', urlController.updateLongUrl);
 
+//Deletes URL Obj
+router.delete('/:shortCode', urlController.deleteUrl);
+
+
 module.exports = router;
