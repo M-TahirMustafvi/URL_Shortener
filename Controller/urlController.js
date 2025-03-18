@@ -9,7 +9,7 @@ exports.createShortUrl = async(req, res) => {
         const {url} = req.body;
         if(!url) return res.status(400).json({error: 'URL required.'});
 
-        const shortCode = shortUrl;
+        const shortCode = `https://www.${shortUrl}.com`;
         const newURL = await URLs.create({url, shortCode});
         
         const { accessCount, ...responseData } = newURL.toJSON();
