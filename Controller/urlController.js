@@ -30,3 +30,24 @@ exports.createShortUrl = async(req, res) => {
         res.status(500).json({ error: 'Server error', details: error.message });
     }
 };
+
+// Gets url object for db based on shortUrl in request params
+exports.getLargeUrl = async(req, res) => {
+    try {
+        const {shortCode} = req.params;
+        const URL = await URLs.findOne({ 
+            where: {shortCode},
+            attributes: {exclude: ['accessCount']}  //excludes access account.
+        });
+
+        if(!URL) return res.status(404).json({error: 'No such URL'});
+
+        await URLs.increment('accessCount', { where: { shortCode } });
+
+        res.status(200).json(URL);
+    }
+    catch(error) {
+        console.error("Error in getLargeUrl:", error);
+        res.status(500).json({ error: 'Server error', details: error.message });
+    }
+};
